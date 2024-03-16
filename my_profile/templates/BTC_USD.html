@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}
+BTC-USD price
+{% endblock %}
+
+{% block content %}
+<h1>BTC-USD Price Chart</h1>
+    <div id="btc-chart"></div>
+    <script>
+        var graphs = {{ graphJSON | safe }};
+        Plotly.react('btc-chart', graphs);
+    </script>
+
+
+{% endblock %}

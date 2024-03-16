@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home page
+{% endblock %}
+
+{% block content %}
+
+    <h1>Home</h1>
+    <p>Welcome to the home page!</p>
+    <h4>ABOUT ME</h4>
+        <p>
+            <b>FINANCIAL ANALYST AND ASPIRING PYTHON DEVELOPER</b>
+            <br>
+            Highly skilled and detail-oriented financial analyst with 2 years of part-time experience.
+            Proficient in Python and multiple packages related to data analysis and visualization, solid
+            understanding in Machine Learning principles and Tensorflow for applied Machine
+            Learning, basic linux-server and cyber-security skills. Strong problem-solving skills and
+            ability to work effectively in a team-based environment.
+        </p>
+        <h4>Links</h4>
+        <ul>
+            <li><a href="{{ url_for('experience_page') }}">Experience</a></li>
+            <li><a href="{{ url_for('skills_page') }}">Skills</a></li>
+            <li><a href="{{ url_for('education_page') }}">Education</a></li>
+            <li><a href="{{ url_for('showcase_page') }}">Showcase</a></li>
+            <li><a href="{{ url_for('contact_page') }}">Contact Me</a></li>
+        </ul>
+        <p>You can access my CV and references by clicking <a href="https://drive.google.com/drive/folders/12PCHOHe_41N8QHltYkHjSzfWHf_r5MEF?usp=sharing">here</a>.</p>
+
+        <h4>About this page</h4>
+        <p>This page is powered by <a href="https://flask.palletsprojects.com/en/3.0.x/">Flask</a> and hosted on <a href="https://www.pythonanywhere.com/">PythonAnywhere</a>.</p>
+
+{% endblock %}
+

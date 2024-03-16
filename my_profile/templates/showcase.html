@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}
+Showcase
+{% endblock %}
+
+{% block content %}
+<h1>Showcase</h1>
+<h4><a href="{{url_for('AI_language_school_page')}}">Brent's AI language School Project</a></h4>
+<p>
+Brent's AI Language School is a project that utilizes AI tools like ChatGPT and Whisper to
+transform YouTube videos into foreign language learning resources. It automates the
+process from video download to generating textual learning materials by transcribing
+audio and creating educational content. This innovative approach aims to enhance
+language learning accessibility and efficiency.
+    <br>
+Skills involved :
+    <ul>
+    <li> program with python OOP method</li>
+    <li>Utilized OpenAI APIs and scripted prompts for models </li>
+    <li>Shared and managed the project via Git and Github</li>
+    </ul>
+     <a href="https://github.com/brentwong-kiel1997/brents_language_school/tree/master">GitHub Link</a>
+</p>
+    <br>
+    <h4><a href="{{url_for('BTC_price_page')}}">Interactive BTC-USD Chart</a></h4>
+
+{% endblock %}

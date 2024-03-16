@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}
+contact
+{% endblock %}
+
+{% block content %}
+    <h1>Contact Me</h1>
+    <div class="contact">
+        <p>Phone: +49 15236349692</p>
+        <p>Email: brentwang1997@gmail.com</p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/mingqianwangbrent987614198/">Brent Wong</a></p>
+        <br>
+        <p>Feel free to contact me by filling out the following form.</p>
+        <form method="POST" class="form-register" style="color:white">
+            {{ form.hidden_tag() }}
+            {{ form.name.label }}
+            {{ form.name (class="form-control", placeholder="Name")}}
+
+            {{ form.hidden_tag() }}
+            {{ form.email.label }}
+            {{ form.email (class="form-control", placeholder="Please input your email address")}}
+
+            {{ form.hidden_tag() }}
+            {{ form.message.label }}
+            {{ form.message (class="form-control", placeholder="Please leave your message here.", rows="5")}}
+            <br>
+            {{ form.submit() }}
+        </form>
+    </div>
+
+{% endblock %}
