@@ -1,4 +1,4 @@
-from my_profile import app, email, db
+from my_profile import app, send_email, db
 from flask import render_template, request, flash, redirect
 from my_profile.form import ContactForm
 from my_profile.models import Contact
@@ -35,7 +35,7 @@ def contact_page():
     if form.validate_on_submit():
         subject = f'message from {form.name.data} with email {form.email.data}'
         message = form.message.data
-        email.send_email(subject=subject, message=message)
+        send_email.send_email(subject=subject, message=message)
         contact = Contact(name=form.name.data, email=form.email.data, message=form.message.data)
         flash('Message sent successfully, thank you for your interest.', category='success')
         with app.app_context():
@@ -106,6 +106,3 @@ def BTC_price_page():
 
     return render_template('BTC_USD.html', graphJSON=graphJSON)
 
-@app.route('/cv')
-def cv_page():
-    return
