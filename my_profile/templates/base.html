@@ -52,7 +52,7 @@
 
 
 
-
+    <div class="main-container">
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
                 {% for category, message in messages %}
@@ -70,6 +70,12 @@
       {% endblock %}
             </div>
       <!-- Future Content here -->
+<footer>
+        <h6>About this site</h6>
+        <p>This site is powered by <a href="https://flask.palletsprojects.com/en/3.0.x/">Flask</a> and hosted on <a href="https://www.pythonanywhere.com/">PythonAnywhere</a>.</p>
+    </footer>
+
+</div>
 
 
 
@@ -80,10 +86,35 @@
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
    </body>
+
    <style>
-      body {
-      background-color: #212121;
-      color: white
-      }
+       html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-color: #212121;
+        color: white;
+    }
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    .container {
+        flex-grow: 1;
+    }
+    footer {
+        text-align: center;
+        padding: 3px;
+        background-color: #2c2c2c;
+        color: white;
+    }
    </style>
+
+
 </html>

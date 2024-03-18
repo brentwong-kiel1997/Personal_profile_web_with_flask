@@ -7,7 +7,7 @@ Home page
 {% block content %}
 
     <h1>Home</h1>
-    <p>Welcome to the home page!</p>
+    <p>Hi, my name is Brent Wong and welcome to my portfolio website.</p>
     <h4>ABOUT ME</h4>
         <p>
             <b>FINANCIAL ANALYST AND ASPIRING PYTHON DEVELOPER</b>
@@ -18,18 +18,117 @@ Home page
             Learning, basic linux-server and cyber-security skills. Strong problem-solving skills and
             ability to work effectively in a team-based environment.
         </p>
-        <h4>Links</h4>
-        <ul>
-            <li><a href="{{ url_for('experience_page') }}">Experience</a></li>
-            <li><a href="{{ url_for('skills_page') }}">Skills</a></li>
-            <li><a href="{{ url_for('education_page') }}">Education</a></li>
-            <li><a href="{{ url_for('showcase_page') }}">Showcase</a></li>
-            <li><a href="{{ url_for('contact_page') }}">Contact Me</a></li>
-        </ul>
-        <p>You can access my CV and references by clicking <a href="https://drive.google.com/drive/folders/12PCHOHe_41N8QHltYkHjSzfWHf_r5MEF?usp=sharing">here</a>.</p>
 
-        <h4>About this page</h4>
-        <p>This page is powered by <a href="https://flask.palletsprojects.com/en/3.0.x/">Flask</a> and hosted on <a href="https://www.pythonanywhere.com/">PythonAnywhere</a>.</p>
+        <h4>Areas of Skills and Expertise</h4>
+
+<style>
+  .body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000000;
+    color: #f5f5f5;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+  }
+  .interest-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .interest-item {
+    flex-basis: calc(33.333% - 20px); /* Three items per row, minus some margin */
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .interest-item h5 {
+    margin-top: 0.5em;
+    color: #FFFFFF;
+  }
+  .interest-item p {
+    font-size: 0.9em;
+    color: #D3D3D3;
+  }
+
+  .my_icon {
+    width: 100px;
+    height: 100px;
+  }
+
+  @media (max-width: 768px) {
+    .interest-item {
+      flex-basis: calc(50% - 20px); /* Two items per row on smaller screens */
+    }
+  }
+  @media (max-width: 480px) {
+    .interest-item {
+      flex-basis: 100%; /* One item per row on the smallest screens */
+    }
+  }
+</style>
+
+<body>
+<div class="container">
+  <div class="interest-section">
+    <div class="interest-item">
+      <img class="my_icon"
+           src="data:image/png;base64,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"
+           alt="Financial Analysis">
+      <h5>Financial Analysis</h5>
+      <p>Deep knowledge in accounting principles and work experience as a finance analyst for credit underwriting, fraud prevention, etc.</p>
+    </div>
+    <div class="interest-item">
+      <img class="my_icon"
+           src="data:image/png;base64,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"
+           alt="AI Development">
+      <h5>AI Development</h5>
+      <p>Profound understanding in machine learning principles and practical skill with Tensorflow and hands-on experience in prompt engineering.</p>
+    </div>
+      <div class="interest-item">
+      <img class="my_icon"
+           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST5CVH8T6DS2Mt1SKdV1nppzkzKe4JFodmzA&usqp=CAU"
+           alt="Data">
+      <h5>Data Analysis</h5>
+      <p>Solid background in Statistics and Economics, proficent in related programming(such as R, MATLAB, Python and Stata) and experience in real-world environment.</p>
+          </div>
+        <div class="interest-item">
+        <img class="my_icon"
+             src="data:image/png;base64,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"
+             alt="Python Development">
+        <h5>Python Development</h5>
+        <p>Proficent in Python OOP development, including areas such as backend development(Flask and Django), API development(FastAPI) Database management(SQL), ect.</p>
+        </div>
+      <div class="interest-item">
+        <img class="my_icon"
+             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAilBMVEX///8BAQH+/v4AAAD7+/vt7e26uro1NTUFBQUvLy/GxsZWVlZSUlLa2toUFBT5+floaGgODg7Pz88ZGRmGhobn5+eQkJBeXl5jY2N8fHwjIyPe3t49PT1nZ2cbGxsRERGzs7NFRUWVlZWlpaV0dHSgoKDBwcEqKipwcHCJiYnLy8uioqJCQkKtra2IKQyCAAAQIElEQVR4nO1dC2PqKgympjp8dtX51s3u4XR3+/9/70ICfa1VWop6zvE7d16xSPmakABNI2P/JFplKK1cqeXrV/4HGP79uMuwKk5fsdLi6cqmR+8M/xiGp79W2KNKXT3dtGmn/0iG1XvUNE7o1nnC1qjbo7KmGu1cI2iQ4Y3izvCi/XDX8t86DivZvtLKt8crwZ2hWeU7w2viwgxztU+3VfSu6GtFVYrOW1pssPI/wPCOO24apWMuB1/++fQXfyZx2SWgOGELTxmYfsOcoS9bZ/75ms6BF9m4I8ZiZoIe811rlBl8IUEHrTKhHdPd46Z7XWy2uymTV715igKdZ7gFPHca5JRW6GArWveuD9GLx4DVkeG54b2U188THK/9IrD0/dKOV+OV+t4bcH5t8SlwDm/mHTeUK5t+C4Y3IkPRkc20hpaeZtiB0OMVh6GjUSsYhtCktSEsINVj7nlxMae60hjxuJojjkKZ5gViMFLLUnyiHQXqM2Dn6R+nq8qVDmMtLj7lun7zqiqahk9jhqbjNfEUXEknbXjQT3kJef2ZIxFKIRr33BQAiUQ0The5l3zW8AsybFpLRY+BJ/LSpPLF/PzDRlTg6SuHf8nnOCLsGea+AoqfONVY1QgA9aWvv/EBcgQKV6UO96VZtyAoGg+VOnAv21SGYV0UMpTX8qXnB4g2oL3pt6nYeiPN/KCiPx3YelDRWrhZHKIVAM80VYmhuaXhyrTAc3ezeXjofk5QLTmsHgggLzOHUBVXHGxEiDTeUV/ayxDSTom0tEA3C3tegaGSIU9siRwgSVEqE4otOW43dYFXsWAbDsX0ZRfCLxmaMqympWp4oDQFF46eQQ8R6UDwENXEejbjEB4FtS7A6omxGTQ/DnNIMYylxMndJyKU7LiXEqkNYDQVxBCHINhkrpU7hmi5w2fE5AWNeAgvVH4GtK0eTJ4nAs8vaEottPSxNf0EZdzYE9S1NDnkVDejpSQTGP1MEeuhJA0QDcV7gemRLN5sTcVxZCdFmInpPk0S4YPtUzIs8oflvS+3LXGdnKWZoLfwpbdAg669hf8jq4ilW6CcSd/OWwiGO5oUKYYnLU05j1Je2UuR9vib+ePjYjGfR9KQipXMYLFdCDyOJCMOn/3FVuAxCi09/hMb6iHdYf/9GodlfTYxo0WIGaYnZl4ytaJiys6QKbIAfK7ZUjQq5jXzoDW4nKXxQPkD7bW4ZsJpDcX1+pBztciqqaXwytoHeaEepqwjL10jluYUQ2U3eFqEOKlJRJiZEHjczl/ASCzkOx+vnYANP9P+MGdpaqBIiVPeAkICTflxKEq86HVwqIp4TazmNM8fuB0T7Dbwe05zvs/lR8oZosxeh2PEnpZLmx4Vh0uc44i5JKGzsfQW8mptZrvd7EAz79SxKgxNkTBcDePP5BBMdkx2NN3Z6fLcdn2YhpdeH8pjLhhypaXRI2I7R9YwWTxuZfmwQjWFByo+zifO9h+dWRqaYKQWDx5PWxY1Mc2VHQCsLU0xQ0/NMtFbIF1Q61RyFJ7+p5YYtLZwIkN5FZ0wpCtIffe0xBQrOsD1AkqxtlsCl6KAof047Kd0Di+lF79oK6BmyXExdpkNAw1r/3yXK+JDW5rrv+Cu/kfjDIfPjiRSA5B2Wc1hdjP3njwxGZ81T5C1u3nPex3xyRfots07fnoFnMBn0wg9hiPzaEiQ05xjmg57Oc3ImKG8Sfpuv71kqwI4n3ifslb5Qvc0j1Oy9sVSZrkCK6D/tGtitew4DewJ2jYIsI+WbTgLpmkEuKK88DlLx6ELKIaXPedlz3YNhpfFNbT0srgzvDxS+uw3odW4JWDbJ18Gu1bsicGAxXBnFkzHHQvs0R/ubZoYTwPWygZjnzEy5kYpYMFH324+grccbZvof4iemPfbXLg+G0t+lhsT3PJeBs75+mNWVUtNGLJxFxrYPrOduOOWbHdcK4L2DKZASxe7HtovL+VmH/B08GU1tSyFvwSre9ZNvoieLBuPEWbjEGw1rDHISKJh45F7M3C2v1tjR5jDa+NaGsW3f7JbNdJ+e3q/lMap620O7ElkzzD3FdrVV+17dDORA9c3frHoJTeB9f6+I4qNzP1+MVTRMeQRuacoqI8R8i1SRM+sNv+dWBpXkXuKRzK9ILuWTFjo9lqM0FmQsKPIPX3/cD47Ho+z49OSbketlscZ4pvC+KKjPH48LlfO9pArMayipTQIVmtdhYR40MU9TTji5wQe9dCtidx8NC/DppGKGFp+9fby3xtZns+fPeKLYqBgQcXez8o2RpjDZLtbDztP4fn7+E0xhEw4CeSKPBcxZOdBRcsPHZq6jAfZCZXbyD26uF46Tiimy9Wmv+Lr2cViwOeYBW/L94+pvKOQasp15F4cVk4CwrvBRJwcSKxNoKvUlCH8sOFAXquXHuuN4HSMcDmPUl7ZS1Ee18YzRZ49bGVoNtPWlqLKommrn2nKaeSeWIA+EQ5kS58PVDx2Kfoy0ocnFvTkiY7sSw/2N7b7xbBppOJLk4ih7DNWO3L4O11eWMeXdijWS8bwfTVlaU4x1DHCs57Efr+jgJpNB8u9rwN5i6XwFBI726ivI+sRH4D/BNmUBB1H7mW9RXqWBjgvbcxbLIL2hqbCozF7PyPD8oFXdKScoR4E2v95sW/Q7jDP0EKGfCjDoCVmrfbnmXFYw7SUMVShz7RmotOmQ4k8IqnCMu2et4gCNu6vVoM31lqee96iKYaAjx8kOur9imNLuQvNta6WevDeZsF0GrDgFYCf1lJ7JJaGItm3i3lEesr7KjZxRMPyc7vA4oBbLoClI/wR07ZgPM/GD9hbmhKGSobPY4Z3MVhLxZfq3dkd2hnvR+1l+nO73TnaH+9uvrsh8KzRcv1U0E97Op2Kvx7JcLOWBfHJkizpk3grMf62DNbHGEDSfi+8SIywXiBCZiBCuuz9LlsgPgt6/Qx1JzIkjXOwYq/8goRdMLyVDWFHEbTdq0su+9JtnOFBu/dbAKR2h87i9Ao4wd5yhtIgsCd7VtbTMyvgUobt6GbiS2VHorYxQ2Psb8bUyInG3rzjxmi9xh7w2jIUK2InoU7+sboXN60NZyonp8U+HP1at5jOQMw+h/0XsISSgQ1eBkNWJSOdMUMZURN8vR76g/ro4w6BVQuH16+AGUXTaIbGYq4chlQEFIJtI3S1GwdGQcf/q/F9fDWM+jp1LVsyBLrKODSFH2+31vp6fG/glwwL2qPKJRmFSXx1L3RBg1XU+TyuFptoPm5bxZvoRe+KvloUI1ypB5X6XINcrkfNMHQMY+HaKYnGLUfQNtPe7TFM0MIA2q/XwYMFaJN+Y9PEYCY8PstY2mpqWc7QZ34vsg1/xcmnZRsQ9YLMY0FnGJoOWL/ly4Q/DTzXZbWMpnCkp4CZ54I2hR88UfISuzAnxbN2A+rx6qfAXIbG6AAP8eaSlZaqv/oNyG3ikGeSe9ZlmPtKe5OkfboqAG+ObCo8RGrIsHM78aXYE/MMrabj9f120ghj1Nd745F7K/Bu5Xl8jGlZOYjc03HeSVJSKsZjkzZb4i0VsL4zk2o+0xh3dN/id849z8vet1epMXSRW94ixRCyJJkIZA45zbnHZUq9yWgU4rXlEI6eRwITtOXCko/w+CS0zjNBD9ioTClN3SHNqW5aS/Vd7pe3NWbVG45xhgLReJ3JuXdcE2xz7nk8nuHllMF5zr2vVhDI3+7I5dxr/aBewg8lcPVtc+5RoGw0X0QTCifLydDURpbyyl6KXM69w3a7WAwoRCgcLA4qUgGjL7tzyrIU2T6DImh8d8T0rD2cQy6Vg9uce5kke5mVQnzjPf7AxpqKbz8JeuuhmL68wbl4Gntkcu6p/EIezYX1qXXOvcToelZTF1gEfif6nESzlv90Ll9bIwx1oGxGhKmQITyach+enbeA1Zj9Ry0dMZNpIkHnOfco5ksy0Tn3cMavood1Dj7rnHvboN0l4/UyPpuhtXzgFR0pZ4gyfB2ncu558LBX5aZz7j2xPX8hpXjLRF86z7mXPG+BY2OrizuKYtrpc87tZm2Ug5YG84z1sg9cOI3c49GB3EGScw9x+CRv8SDeSswn4FlZmiUbhpj1Sj6l8nZGS+2RWJokNjGfcy+EfHyplQy/2zKQGkK8az9o1NKUMNQyVF6AXKGX5J2jX7WI3QU6DqunEd7YWv4+ETwMWe+ikXuezrXH9W91pFKU63zmtGllF0Er3EW787T8mbL296UiaD0v+zhevph9Os82Chr4jvZFO93cNqZjLZ0Nx2vlLTD6cj9cDwXWc5ogv1NxuHuw1FLx7Zf+z9fw7T3vWh1bmlX6eQtxoWNvsSd/uNPlhfXqKdGHrI46tjQwWC7fxX/vC5Lh6CBKEhjcx2FzoOL22X71pLNp5hbTri1N+TjM//qDnaXRD03TZLD22uL0CjjN0FOnAO0qdFHPwYEyJ+uKybu6FEFJDPQ5Y37er/VhKSNjhuFN7SaKeUDjkXsDZ1mBa0AwHBj33BSvNEe7uvjImnnprBENYQyZyf1VIa3Y+HyXFUrHYV6dl5A3aFeiJ3oRwpP5/QhjhusNqDzPVzYy0j1u1qb9No/c89nw4RKJS86KUCrpg4MswhLrBegf7bjeixyE26GLDKZS3MEuAktQF60Q7WSAaXC+y4a8curcGvYsMMbduXHms32VBva9dT3hGQ9b+6yCDcREGcf6MdOKqa8YpvNLnyT9ouJL42O+OlZYOd8QVsZI5Yo9OH258hUtBzgxtEHTwcE5hi12OkL5LBrU0huFk9jEamrpGNdgWGnU2uIGY4Sbxl1La6EuQycX5aaioP8ahtaDOPfu9BfcWZrSHvwDDA2E26DG3N44bLI9OduKn127hZlX4wx9MW3XM+9rey1EkYrbtCcJtlGGbeb0Z1TycDHqCxGw9qyL47A7a7Nqq0wbVHsszupMbdzIwsC3edumpYrnrSF1VmIo8DHT0iYDGU3BPfrJqEGQfON368UfOnn4txCteg/hfoC+tyj/91+N817MArdkRGRlrDFm+nO2m31KMYZ1mggaM1Bn9LcXvYwqY4Ipqtfi+qxRilW++6Jeo6/yXlUbc6dr+4+ZxIKmkLfAjywIAnYEr1YLMlqxLsPk8OmKZBMjukVTHbDDp8x3tb+vcrYU9T7X8bpmlLCsdf3VTwe35O8E0y/gVceydp+roT3rV8ccnf2PmNn8ENnqLfRn7cv4C9x5rgxG+cyjR8xFCN912qidsqLaOJQb+xV9L7bZAYoEoEcsO0UD6jT8lh/49uPQboSehHD5IWb8DGXWXJsZoJv+WcMPXkcqLe3oNTB+UPkPYigwJiu8HFdKofMnMWStYDqcBi3btdO1aZSgFcS3LH3zLE9NMTzdllVvro5/hWHT+Bs43HFDuKxCXQH/AMM77rjj+igajQajNimWHjA4m01lgw7RO2OTVKXyLaH0At5xxx2Xw7UNgXNc+wLfcccdGu6GuGmVSpWrdaP6V/4wOLwVY9ByUqVS5Ur4H5IjYxw8jhnrAAAAAElFTkSuQmCC"
+             alt="Linux and Server Management">
+        <h5>Linux and Server Management</h5>
+        <p>Solid understanding in Linux system and basic skills in bash scripting.</p>
+        </div>
+      <div class="interest-item">
+        <img class="my_icon"
+             src="data:image/png;base64,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"
+             alt="MS Office">
+        <h5>MS Office</h5>
+        <p>Proficient in Microsoft Office: Excel for data analysis, PowerPoint for compelling presentations, Word for document creation, etc.</p>
+        </div>
+  </div>
+</div>
+</body>
+    <!-- ... More items ... -->
+
+      <h4>To find out more details about me, please see the following links:</h4>
+
+        <ul>
+            <li><a class="custom-link" href="{{ url_for('experience_page') }}">Experience</a></li>
+            <li><a class="custom-link" href="{{ url_for('skills_page') }}">Skills</a></li>
+            <li><a class="custom-link" href="{{ url_for('education_page') }}">Education</a></li>
+            <li><a class="custom-link" href="{{ url_for('showcase_page') }}">Showcase</a></li>
+            <li><a class="custom-link" href="https://www.linkedin.com/in/mingqianwangbrent987614198/">LinkedIn profile</a></li>
+            <li><a class="custom-link" href="{{ url_for('contact_page') }}">Contact Me</a></li>
+            <li><a class="custom-link" href="https://drive.google.com/drive/folders/12PCHOHe_41N8QHltYkHjSzfWHf_r5MEF?usp=sharing">CV and References</a></li>
+        </ul>
 
 {% endblock %}
+
+
 
