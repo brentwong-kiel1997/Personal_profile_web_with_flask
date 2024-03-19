@@ -1,34 +1,69 @@
 {% extends 'base.html' %}
-{% block title %}
-Education
-{% endblock %}
+{% block title %}Education{% endblock %}
 
 {% block content %}
-    <h1>Education</h1>
+<style>
+    .header-content {
+        display: flex;
+        align-items: center;
+    }
+
+    .icon {
+        margin-right: 10px; /* Adjust the spacing between the icon and the text as needed */
+    }
+
+</style>
+
+<h1>Education</h1>
+
+<div style="display: flex;">
+    <a href="https://www.wiso.uni-kiel.de/en/study/master/quantitative-finance/quantitative-finance2014" >
+        <img src="https://smartwatermagazine.com/sites/default/files/logo_kiel_u.png" width="60" height="60"
+             alt="University Icon" style="margin-right: 20px;"/>
+    </a>
     <div>
         <h2>Master of Science in Quantitative Finance</h2>
-        <p>Christian-Albrechts-Universität zu Kiel, <a href="https://maps.app.goo.gl/CfAQUFKGxekQTJQN9">Kiel Germany</a></p>
+        <p>Christian-Albrechts-Universität zu Kiel, Kiel, Germany</p>
         <p>October 2019 - March 2022</p>
         <ul>
-            <li> Specialized in mathematical finance and risk management. </li>
-            <li> Solid background in statistics and mathematics, such as Bayesian inference, time
-series analysis, PDE numerical solution, etc. </li>
-            <li> Proficient in python and related packages applied to data analysis and numerical
-computing, such as numpy, matplotlib, etc. </li>
+            <li>Specialization in mathematical finance and risk management.</li>
+            <li>Expertise in statistics and mathematics, including Bayesian inference and time series analysis.</li>
+            <li>Proficiency in Python for data analysis and numerical computing.</li>
         </ul>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2326.021897727838!2d10.1180193!3d54.3389211!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b2572e433f759f%3A0x378939a24b03d392!2sCAU%20Kiel%20%7C%20Universit%C3%A4tshochhaus!5e0!3m2!1sen!2sde!4v1710886833426!5m2!1sen!2sde"
+                width="400" height="200"
+                style="border:0;"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
     </div>
+</div>
+
+<br>
+
+<div style="display: flex;">
+    <a href="https://www.en.sdu.edu.cn/Facilities/Shandong_University_at_Weihai.htm">
+        <img
+                src="https://ml.globenewswire.com/Resource/Download/b0d2e617-6c3c-4e41-9769-6050cd676e52?size=3"
+                width="60" height="60"
+                alt="University Icon" style="margin-right: 20px;"/>
+    </a>
     <div>
         <h2>Bachelor of Management Science in Accounting</h2>
-        <p>Shandong University, <a href="https://maps.app.goo.gl/XGwwGndttYooMU5YA">Weihai China</a></p>
+        <p>Shandong University, Weihai, China</p>
         <p>September 2015 - June 2019</p>
-        <p>
         <ul>
-            <li> Specialized in financial accounting and taxation based on Chinese GAAP. </li>
-            <li> Solid background in business administration. </li>
-            <li> Hands-on skills in accounting management system. </li>
+            <li>Specialized in financial accounting and taxation based on Chinese GAAP.</li>
+            <li>Solid background in business administration.</li>
+            <li>Hands-on skills in accounting management systems.</li>
         </ul>
+        <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.0746206721815!2d122.05825907644717!3d37.529738226236475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x359aebb7f779abb7%3A0x681ac4bf6db7d0e2!2sShandong%20University%20Weihai%20Campus!5e0!3m2!1sen!2sde!4v1710888109969!5m2!1sen!2sde"
+                width="400" height="200"
+                style="border:0;"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
     </div>
+</div>
+
+
 {% endblock %}
-
-
-
