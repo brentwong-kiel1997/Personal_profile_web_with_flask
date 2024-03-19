@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat App</title>
+</head>
+<body>
+    <h1>Chat App</h1>
+ <div>
+        <label for="username">Enter your username:</label>
+        <input type="text" id="username" placeholder="Username" />
+        <button onclick="updateUsername()">Update Username</button>
+    </div>
+    <ul id="messages"></ul>
+    <input type="text" id="myMessage" placeholder="Your message" />
+    <button onclick="sendMessage()">Send</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+    <script type="text/javascript">
+        var socket = io();
+
+        function sendMessage() {
+            var username = document.getElementById("username").value.trim();
+            if (username === '') {
+                alert('Please enter a username.');
+                return;
+            }
+            var message = document.getElementById("myMessage").value;
+            socket.emit('message', { username: username, message: message });
+            document.getElementById("myMessage").value = '';
+        }
+
+        function updateUsername() {
+            var newUsername = document.getElementById("username").value.trim();
+            if (!newUsername) {
+                alert('Username cannot be empty.');
+                return;
+            }
+            // No server-side action needed, just update the value in the input field.
+            document.getElementById("username").value = newUsername;
+        }
+
+        socket.on('message', function(data) {
+            var li = document.createElement("li");
+            var message = `${data.username}: ${data.message}`;
+            li.appendChild(document.createTextNode(message));
+            document.getElementById("messages").appendChild(li);
+        });
+    </script>
+</body>
+</html>

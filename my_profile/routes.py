@@ -1,11 +1,13 @@
-from my_profile import app, send_email, db
-from flask import render_template, request, flash, redirect
+from my_profile import app, send_email, db, socketio
+from flask import render_template, request, flash, redirect,session, url_for
 from my_profile.form import ContactForm
 from my_profile.models import Contact
 import yfinance as yf
 import plotly.graph_objs as go
 import json
 import plotly
+from flask_socketio import emit
+
 
 @app.route('/')
 @app.route('/home')
@@ -106,3 +108,33 @@ def BTC_price_page():
 
     return render_template('BTC_USD.html', graphJSON=graphJSON)
 
+
+
+
+@app.route('/chat_login', methods=['GET', 'POST'])
+def chat_login():
+    if request.method == 'POST':
+        session['username'] = request.form['username']
+        return redirect(url_for('chat'))
+    return render_template('chat_login.html')
+
+@app.route('/chat')
+def chat():
+    username = session.get('username', '')
+    if not username:
+        return redirect(url_for('chat_login'))
+    return render_template('chat.html', username=username)
+
+@socketio.on('message')
+def handle_message(data):
+    username = session.get('username', 'Anonymous')
+    emit('message', {'username': username, 'msg': data['msg']}, broadcast=True)
+
+@socketio.on('set username')
+def handle_username(username):
+    session['username'] = username
+    emit('username set', username, broadcast=False)
+
+
+if __name__ == '__main__':
+    socketio.run(app)

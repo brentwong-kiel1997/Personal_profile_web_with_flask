@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Chat App
+{% endblock %}
+
+{% block content %}
+<h1>Chat App</h1>
+<p>Real-time chatting channel. Please note that anyone who is on this website can see your message as it is sent in real time.
+But no message will on recorded.</p>
+<div id="username-area">
+        Your username: <span id="user-name">{{ username }}</span>
+        <button onclick="changeUsername()">Change Username</button>
+    </div>
+    <ul id="messages"></ul>
+    <input type="text" id="message" placeholder="Enter message">
+    <button onclick="sendMessage()">Send Message</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+    <script>
+        var socket = io();
+
+        function sendMessage() {
+            var message = document.getElementById('message').value;
+            socket.emit('message', { 'msg': message });
+            document.getElementById('message').value = '';
+        }
+
+        function changeUsername() {
+            var newUsername = prompt("Enter new username:");
+            if (newUsername) {
+                document.getElementById('user-name').textContent = newUsername;
+                socket.emit('set username', newUsername);
+            }
+        }
+
+        socket.on('message', function(data) {
+            const messagesElement = document.getElementById('messages');
+            const messageElement = document.createElement('li');
+            messageElement.textContent = data.username + ": " + data.msg;
+            messagesElement.appendChild(messageElement);
+        });
+    </script>
+{% endblock %}
