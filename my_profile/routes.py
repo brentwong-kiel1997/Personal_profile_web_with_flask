@@ -2,11 +2,10 @@ from my_profile import app, send_email, db, socketio
 from flask import render_template, request, flash, redirect,session, url_for
 from my_profile.form import ContactForm
 from my_profile.models import Contact
-import yfinance as yf
-import plotly.graph_objs as go
 import json
 import plotly
 from flask_socketio import emit
+from my_profile.plotting import create_btc_usd_chart
 
 
 @app.route('/')
@@ -58,54 +57,10 @@ def AI_language_school_page():
 
 @app.route('/BTC_price', methods=['GET', 'POST'])
 def BTC_price_page():
-    data = yf.download(tickers='BTC-USD', interval='1m')
-
-    fig = go.Figure(data=[
-        go.Candlestick(x=data.index,
-                       open=data['Open'],
-                       high=data['High'],
-                       low=data['Low'],
-                       close=data['Close'],
-                       increasing_line_color='#00CC96',  # Bright green
-                       decreasing_line_color='#FF4136')  # Bright red
-    ])
-
-    # Add a line chart to connect the closing prices
-    fig.add_trace(
-        go.Scatter(x=data.index, y=data['Close'], mode='lines', name='Close', line=dict(color='yellow', width=2)))
-
-    # Update layout with fixed x-axis range
-    fig.update_xaxes(
-        range=[data.index[0], data.index[-1]],
-        rangeselector=dict(
-            buttons=list([
-                dict(count=15, label='15m', step='minute', stepmode='backward'),
-                dict(count=45, label='45m', step='minute', stepmode='backward'),
-                dict(step='all')
-    ]), bgcolor='#333333'
-        ),
-        type='date'
-    )
-
-    fig.update_layout(
-        title='BTC-USD Price Chart',
-        title_x=0.5,
-        xaxis_title='Time',
-        yaxis_title='Price (USD)',
-        xaxis_rangeslider_visible=False,
-        paper_bgcolor='black',
-        plot_bgcolor='black',
-        font=dict(
-            family="Courier New, monospace",
-            size=18,
-            color="#FFFFFF"
-        )
-    )
-
+    # Create the figure using the function from plotting.py
+    fig = create_btc_usd_chart()
     # Convert the figure to HTML and JSON
     graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
-
-
     return render_template('BTC_USD.html', graphJSON=graphJSON)
 
 
