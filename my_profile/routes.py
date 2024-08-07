@@ -52,7 +52,7 @@ def contact_page():
 
 @app.route('/AI_language_school')
 def AI_language_school_page():
-    return redirect('https://bals-brentwong.pythonanywhere.com/')
+    return redirect('https://brentwmq.pythonanywhere.com/')
 
 
 @app.route('/BTC_price', methods=['GET', 'POST'])
