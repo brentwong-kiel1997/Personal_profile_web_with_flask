@@ -2,6 +2,8 @@ from flask import Flask, url_for
 from flask_bcrypt import Bcrypt
 from flask_sqlalchemy import SQLAlchemy
 from flask_socketio import SocketIO
+from flask_sslify import SSLify
+
 
 
 app = Flask(__name__)
@@ -10,5 +12,7 @@ app.config['SECRET_KEY'] = '7b67c2145e61ce351ca20887'
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 socketio = SocketIO(app)
+sslify = SSLify(app)
+
 
 from my_profile import routes
