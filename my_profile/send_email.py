@@ -2,7 +2,7 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-def send_email(subject, message, from_addr='brentwang1997@gmail.com', to_addr='brentwong1997@gmail.com', password='jmrgaffvvpolejhn'):
+def send_email(subject, message, from_addr='your email', to_addr='your email', password='email application password'):
     msg = MIMEMultipart()
     msg['From'] = from_addr
     msg['To'] = to_addr
